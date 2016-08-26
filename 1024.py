@@ -10,6 +10,17 @@ def lmergeZero(l, a, b):
         l[a] = l[b]
         l[b] = 0
 
+def rmerger(l, a, b):
+    if l[a] == l[b]:
+        l[b] += l[a]
+        l[a] = 0
+
+def rmergeZero(l, a, b):
+    if l[b] == 0:
+        l[b] = l[a]
+        l[a] = 0
+
+
 w = 4
 h = 4
 Matrix = [[0 for x in range(w)] for y in range(h)]
@@ -40,6 +51,15 @@ def left(row):
     lmerger(row, 1, 2)
     lmerger(row, 0, 1)
 
+def right(row):
+    rmerger(row, 0, 1)
+    rmerger(row, 1, 2)
+    rmerger(row, 2, 3)
+
+    rmergeZero(row, 0, 1)
+    rmergeZero(row, 1, 2)
+    rmergeZero(row, 2, 3)
+
 
 
 direction = input()
@@ -50,6 +70,13 @@ if direction == 'l':
     left(Matrix[1])
     left(Matrix[2])
     left(Matrix[3])
+
+if direction == 'r':
+    right(Matrix[0])
+    right(Matrix[1])
+    right(Matrix[2])
+    right(Matrix[3])
+
 
 showBoard()
 
