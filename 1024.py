@@ -1,5 +1,15 @@
 import random
 
+def lmerger(l, a, b):
+    if l[a] == l[b]:
+        l[a] += l[b]
+        l[b] = 0
+
+def lmergeZero(l, a, b):
+    if l[a] == 0:
+        l[a] = l[b]
+        l[b] = 0
+
 w = 4
 h = 4
 Matrix = [[0 for x in range(w)] for y in range(h)]
@@ -17,7 +27,34 @@ def showBoard():
     for n in Matrix:
         print (n);
 
+randomGenerator() 
 showBoard()
-randomGenerator()
-showBoard()    
 
+# the reaction if input left, right, up and down:
+def left(row):
+    lmergeZero(row, 2, 3)
+    lmergeZero(row, 1, 2)
+    lmergeZero(row, 0, 1)
+
+    lmerger(row, 2, 3)
+    lmerger(row, 1, 2)
+    lmerger(row, 0, 1)
+
+
+
+direction = input()
+
+
+if direction == 'l':
+    left(Matrix[0])
+    left(Matrix[1])
+    left(Matrix[2])
+    left(Matrix[3])
+
+showBoard()
+
+
+
+
+
+        
