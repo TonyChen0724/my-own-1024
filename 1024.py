@@ -23,7 +23,7 @@ def rmergeZero(l, a, b):
         l[a] = 0
 
 # top merger:
-def twomerger(lx, ly):
+def twotopmerger(lx, ly):
     if lx[0] == ly[0]:
         lx[0] += ly[0]
         ly[0] = 0
@@ -37,7 +37,7 @@ def twomerger(lx, ly):
         lx[3] += ly[3]
         ly[3] = 0
 
-def zeromerger(lx, ly):
+def zerotopmerger(lx, ly):
     if lx[0] == 0:
         lx[0] += ly[0]
         ly[0] = 0
@@ -51,6 +51,34 @@ def zeromerger(lx, ly):
         lx[3] += ly[3]
         ly[3] = 0
 
+# down merge:
+def twodownmerger(lx, ly):
+    if lx[0] == ly[0]:
+        ly[0] += lx[0]
+        lx[0] = 0
+    if lx[1] == ly[1]:
+        ly[1] += lx[1]
+        lx[1] = 0
+    if lx[2] == ly[2]:
+        ly[2] += lx[2]
+        lx[2] = 0
+    if lx[3] == ly[3]:
+        ly[3] += lx[3]
+        lx[3] = 0
+
+def zerodownmerger(lx, ly):
+    if ly[0] == 0:
+        ly[0] += lx[0]
+        lx[0] = 0
+    if ly[1] == 0:
+        ly[1] += lx[1]
+        lx[1] = 0
+    if ly[2] == 0:
+        ly[2] += lx[2]
+        lx[2] = 0
+    if ly[3] == 0:
+        ly[3] += lx[3]
+        lx[3] = 0
 
 
 w = 4
@@ -93,8 +121,12 @@ def right(row):
     rmerger(row, 2, 3)
 
 def top(lx, ly):
-    zeromerger(lx, ly)
-    twomerger(lx, ly)
+    zerotopmerger(lx, ly)
+    twotopmerger(lx, ly)
+
+def down(lx, ly):
+    zerodownmerger(lx, ly)
+    twodownmerger(lx, ly)
 
 direction = input()
 
@@ -115,6 +147,11 @@ if direction == 't':
     top(Matrix[2], Matrix[3])
     top(Matrix[1], Matrix[2])
     top(Matrix[0], Matrix[1])
+
+if direction == 'd':
+    down(Matrix[0], Matrix[1])
+    down(Matrix[1], Matrix[2])
+    down(Matrix[2], Matrix[3])
 
 showBoard()
 
