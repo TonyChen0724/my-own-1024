@@ -1,6 +1,6 @@
 import random
 
-# left merger:
+# left merger: 
 def lmerger(l, a, b):
     if l[a] == l[b]:
         l[a] += l[b]
@@ -106,14 +106,17 @@ randomGenerator()
 showBoard()
 
 # the reaction if input left, right, up and down:
-def left(row):
-    lmergeZero(row, 0, 1)
-    lmergeZero(row, 1, 2)
-    lmergeZero(row, 2, 3)
+#!!! about [0,0,2,4] --> [2,0,0,4] using while loop!!!
 
-    lmerger(row, 2, 3)
-    lmerger(row, 1, 2)
-    lmerger(row, 0, 1)
+def left(row):
+    while(row[3]-row[2]==row[3] or row[2]-row[1]==row[2] or row[1]-row[0]==row[1] or row[3] == row[2] or row[2] == row[1] or row[1] == row[0]):
+        lmergeZero(row, 0, 1)
+        lmergeZero(row, 1, 2)
+        lmergeZero(row, 2, 3)
+
+        lmerger(row, 2, 3)
+        lmerger(row, 1, 2)
+        lmerger(row, 0, 1)
 
 def right(row):
     rmergeZero(row, 0, 1)
