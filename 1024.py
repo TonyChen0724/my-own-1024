@@ -88,9 +88,13 @@ Matrix = [[0 for x in range(w)] for y in range(h)]
 
 # generate 2 in a random block:
 def randomGenerator():
+    #!!! Python don't have do...while... loop:
     coo1 = random.randrange(0, 4)
     coo2 = random.randrange(0, 4)
-    Matrix[coo1][coo2] = 2;
+    while Matrix[coo1][coo2] != 0:
+        coo1 = random.randrange(0, 4)
+        coo2 = random.randrange(0, 4)
+    Matrix[coo1][coo2] = 2
 
 # print the board:
 def showBoard():
