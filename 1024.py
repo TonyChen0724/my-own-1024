@@ -107,9 +107,9 @@ showBoard()
 
 # the reaction if input left, right, up and down:
 def left(row):
-    lmergeZero(row, 2, 3)
-    lmergeZero(row, 1, 2)
     lmergeZero(row, 0, 1)
+    lmergeZero(row, 1, 2)
+    lmergeZero(row, 2, 3)
 
     lmerger(row, 2, 3)
     lmerger(row, 1, 2)
@@ -132,32 +132,36 @@ def down(lx, ly):
     zerodownmerger(lx, ly)
     twodownmerger(lx, ly)
 
-direction = input()
+while True:
 
 
-if direction == 'l':
-    left(Matrix[0])
-    left(Matrix[1])
-    left(Matrix[2])
-    left(Matrix[3])
+    direction = input()
 
-if direction == 'r':
-    right(Matrix[0])
-    right(Matrix[1])
-    right(Matrix[2])
-    right(Matrix[3])
 
-if direction == 't':
-    top(Matrix[2], Matrix[3])
-    top(Matrix[1], Matrix[2])
-    top(Matrix[0], Matrix[1])
+    if direction == 'l':
+        left(Matrix[0])
+        left(Matrix[1])
+        left(Matrix[2])
+        left(Matrix[3])
 
-if direction == 'd':
-    down(Matrix[0], Matrix[1])
-    down(Matrix[1], Matrix[2])
-    down(Matrix[2], Matrix[3])
+    if direction == 'r':
+        right(Matrix[0])
+        right(Matrix[1])
+        right(Matrix[2])
+        right(Matrix[3])
 
-showBoard()
+    if direction == 't':
+        top(Matrix[2], Matrix[3])
+        top(Matrix[1], Matrix[2])
+        top(Matrix[0], Matrix[1])
+
+    if direction == 'd':
+        down(Matrix[0], Matrix[1])
+        down(Matrix[1], Matrix[2])
+        down(Matrix[2], Matrix[3])
+    
+    randomGenerator()
+    showBoard()
 
 
 
