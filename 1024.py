@@ -109,7 +109,14 @@ showBoard()
 #!!! about [0,0,2,4] --> [2,0,0,4] using while loop!!!
 
 def left(row):
-    while(row[3]-row[2]==row[3] or row[2]-row[1]==row[2] or row[1]-row[0]==row[1] or row[3] == row[2] or row[2] == row[1] or row[1] == row[0]):
+    condition1 = (row[3]-row[2]==row[3]) and (row[3] != 0)
+    condition2 = (row[2]-row[1]==row[2]) and (row[2] != 0)
+    condition3 = (row[1]-row[0]==row[1]) and (row[1] != 0)
+    condition4 = (row[3] == row[2]) and (row[2] != 0) and (row[3] != 0)
+    condition5 = (row[2] == row[1]) and (row[2] != 0) and (row[1] != 0)
+    condition6 = (row[1] == row[0]) and (row[1] != 0) and (row[0] != 0)
+ 
+    while condition1 or condition2 or condition3 or condition4 or condition5 or condition6:
         lmergeZero(row, 0, 1)
         lmergeZero(row, 1, 2)
         lmergeZero(row, 2, 3)
@@ -118,14 +125,43 @@ def left(row):
         lmerger(row, 1, 2)
         lmerger(row, 0, 1)
 
+        condition1 = (row[3]-row[2]==row[3]) and (row[3] != 0)
+        condition2 = (row[2]-row[1]==row[2]) and (row[2] != 0)
+        condition3 = (row[1]-row[0]==row[1]) and (row[1] != 0)
+        condition4 = (row[3] == row[2]) and (row[2] != 0) and (row[3] != 0)
+        condition5 = (row[2] == row[1]) and (row[2] != 0) and (row[1] != 0)
+        condition6 = (row[1] == row[0]) and (row[1] != 0) and (row[0] != 0)
+        
+          
 def right(row):
-    rmergeZero(row, 0, 1)
-    rmergeZero(row, 1, 2)
-    rmergeZero(row, 2, 3)
+    condition1 = (row[2]-row[3]==row[2]) and (row[2] != 0)
+    condition2 = (row[1]-row[2]==row[1]) and (row[1] != 0)
+    condition3 = (row[0]-row[1]==row[0]) and (row[0] != 0)
+    condition4 = (row[3] == row[2]) and (row[2] != 0) and (row[3] != 0)
+    condition5 = (row[2] == row[1]) and (row[2] != 0) and (row[1] != 0)
+    condition6 = (row[1] == row[0]) and (row[1] != 0) and (row[0] != 0)
 
-    rmerger(row, 0, 1)
-    rmerger(row, 1, 2)
-    rmerger(row, 2, 3)
+    while condition1 or condition2 or condition3 or condition4 or condition5 or condition6:
+
+        rmergeZero(row, 0, 1)
+        rmergeZero(row, 1, 2)
+        rmergeZero(row, 2, 3)
+
+        rmerger(row, 0, 1)
+        rmerger(row, 1, 2)
+        rmerger(row, 2, 3)
+        
+        condition1 = (row[2]-row[3]==row[2]) and (row[2] != 0)
+        condition2 = (row[1]-row[2]==row[1]) and (row[1] != 0)
+        condition3 = (row[0]-row[1]==row[0]) and (row[0] != 0)
+        condition4 = (row[3] == row[2]) and (row[2] != 0) and (row[3] != 0)
+        condition5 = (row[2] == row[1]) and (row[2] != 0) and (row[1] != 0)
+        condition6 = (row[1] == row[0]) and (row[1] != 0) and (row[0] != 0)
+
+
+                
+
+
 
 def top(lx, ly):
     zerotopmerger(lx, ly)
